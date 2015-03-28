@@ -19,11 +19,11 @@ namespace WebApplication1
 
         protected void btnSearch_Click(object sender, EventArgs e)
         {
-            using (SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["PetConnectionString"].ConnectionString))
+            using (SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["PetConnectionString2"].ConnectionString))
             {
                 using (SqlCommand cmd = cn.CreateCommand())
                 {
-                    cmd.CommandText = "select * from Pet where Pet_name like @name";
+                    cmd.CommandText = "select * from Pet_table where Pet_name like @name";
                     cmd.Parameters.Add(new SqlParameter("@name", "%" + txtSearch.Text + "%"));
 
                     using (SqlDataAdapter da = new SqlDataAdapter(cmd))
@@ -41,7 +41,7 @@ namespace WebApplication1
 
         protected void btnAdd_Click(object sender, EventArgs e)
         {
-            using (SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["PetConnectionString"].ConnectionString))
+            using (SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["PetConnectionString2"].ConnectionString))
             {
                 using (SqlCommand cmd = cn.CreateCommand())
                 {
@@ -74,7 +74,7 @@ namespace WebApplication1
 
         protected void btnEdit_Click(object sender, EventArgs e)
         {
-            using (SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["PetConnectionString"].ConnectionString))
+            using (SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["PetConnectionString2"].ConnectionString))
             {
                 using (SqlCommand cmd = cn.CreateCommand())
                 {
@@ -105,7 +105,7 @@ namespace WebApplication1
 
         protected void btnDelete_Click(object sender, EventArgs e)
         {
-            using (SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["PetConnectionString"].ConnectionString))
+            using (SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["PetConnectionString2"].ConnectionString))
             {
                 using (SqlCommand cmd = cn.CreateCommand())
                 {
