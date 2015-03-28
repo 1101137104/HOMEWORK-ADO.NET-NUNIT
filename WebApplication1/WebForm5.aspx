@@ -13,7 +13,7 @@
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:PetConnectionString %>" SelectCommand="SELECT * FROM [Pet]" ProviderName="System.Data.SqlClient"></asp:SqlDataSource>
 
         <asp:TextBox ID="txtSearch" runat="server"></asp:TextBox>
-        <asp:Button ID="btnSearch" runat="server" OnClick="btnSearch_Click" Text="查詢" />
+        <asp:Button ID="btnSearch" runat="server" OnClick="btnSearch_Click" Text="查詢吧" />
         <br />
         <asp:GridView ID="gvResult" runat="server" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3" Width="464px">
             <FooterStyle BackColor="White" ForeColor="#000066" />
