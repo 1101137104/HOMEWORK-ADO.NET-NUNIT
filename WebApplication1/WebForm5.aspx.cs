@@ -69,6 +69,10 @@ namespace WebApplication1
                         da.Update(dt);
 
                         btnSearch_Click(null, null);
+                        txtName.Text = null;
+                        txtAge.Text = null;
+                        textSpecies.Text = null;
+                        textHost.Text = null;
                     }
                 }
             }
@@ -102,6 +106,12 @@ namespace WebApplication1
                         da.Update(dt);
 
                         btnSearch_Click(null, null);
+
+                        txtE_ID.Text = null;
+                        txtE_Name.Text = null;
+                        txtE_Age.Text = null;
+                        textE_Species.Text = null;
+                        textE_Host.Text = null;
                     }
                 }
             }
@@ -132,6 +142,7 @@ namespace WebApplication1
                         da.Update(dt);
 
                         btnSearch_Click(null, null);
+                        txtD_Pet_id.Text = null;
                     }
                 }
             }
