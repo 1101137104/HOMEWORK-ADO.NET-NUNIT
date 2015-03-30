@@ -76,6 +76,24 @@ namespace WebApplication1 {
         protected global::System.Web.UI.WebControls.TextBox txtAge;
         
         /// <summary>
+        /// textSpecies control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox textSpecies;
+        
+        /// <summary>
+        /// textHost control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox textHost;
+        
+        /// <summary>
         /// btnAdd control.
         /// </summary>
         /// <remarks>
@@ -112,6 +130,24 @@ namespace WebApplication1 {
         protected global::System.Web.UI.WebControls.TextBox txtE_Age;
         
         /// <summary>
+        /// textE_Species control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox textE_Species;
+        
+        /// <summary>
+        /// textE_Host control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox textE_Host;
+        
+        /// <summary>
         /// btnEdit control.
         /// </summary>
         /// <remarks>
@@ -121,13 +157,13 @@ namespace WebApplication1 {
         protected global::System.Web.UI.WebControls.Button btnEdit;
         
         /// <summary>
-        /// txtD_ID control.
+        /// txtD_Pet_id control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtD_ID;
+        protected global::System.Web.UI.WebControls.TextBox txtD_Pet_id;
         
         /// <summary>
         /// btnDelete control.

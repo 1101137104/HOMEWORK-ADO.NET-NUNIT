@@ -12,12 +12,12 @@ namespace WebApplication1
 {
     public partial class WebForm5 : System.Web.UI.Page
     {
-        protected void Page_Load(object sender, EventArgs e)
+        protected void Page_Load(object sender, EventArgs e)    //查詢按鈕
         {
             btnSearch_Click(null, null);
         }
 
-        protected void btnSearch_Click(object sender, EventArgs e)
+        protected void btnSearch_Click(object sender, EventArgs e)  //查詢程式
         {
             using (SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["PetConnectionString2"].ConnectionString))
             {
@@ -45,7 +45,7 @@ namespace WebApplication1
             {
                 using (SqlCommand cmd = cn.CreateCommand())
                 {
-                    cmd.CommandText = "select * from employees";
+                    cmd.CommandText = "select * from Pet_table";
                     cmd.Parameters.Add(new SqlParameter("@name", "%" + txtSearch.Text + "%"));
 
                     using (SqlDataAdapter da = new SqlDataAdapter(cmd))
@@ -61,8 +61,10 @@ namespace WebApplication1
                         da.Fill(ds);
                         DataTable dt = ds.Tables["Table"];
                         DataRow dr = dt.NewRow();
-                        dr["Name"] = txtName.Text;
-                        dr["Age"] = txtAge.Text;
+                        dr["Pet_name"] = txtName.Text;
+                        dr["Pet_age"] = txtAge.Text;
+                        dr["Pet_species"] = textSpecies.Text;
+                        dr["Pet_host"] = textHost.Text;
                         dt.Rows.Add(dr);
                         da.Update(dt);
 
@@ -78,7 +80,7 @@ namespace WebApplication1
             {
                 using (SqlCommand cmd = cn.CreateCommand())
                 {
-                    cmd.CommandText = "select * from employees";
+                    cmd.CommandText = "select * from Pet_table";
 
                     using (SqlDataAdapter da = new SqlDataAdapter(cmd))
                     {
@@ -92,9 +94,11 @@ namespace WebApplication1
                         ds.Clear();
                         da.Fill(ds);
                         DataTable dt = ds.Tables[0];
-                        DataRow dr = dt.Select(string.Format("EmployeeID = {0}", txtE_ID.Text)).First();
-                        dr["Name"] = txtE_Name.Text;
-                        dr["Age"] = txtE_Age.Text;
+                        DataRow dr = dt.Select(string.Format("Pet_id = {0}", txtE_ID.Text)).First();
+                        dr["Pet_name"] = txtE_Name.Text;
+                        dr["Pet_age"] = txtE_Age.Text;
+                        dr["Pet_species"] = textE_Species.Text;
+                        dr["Pet_host"] = textE_Host.Text;
                         da.Update(dt);
 
                         btnSearch_Click(null, null);
@@ -109,7 +113,7 @@ namespace WebApplication1
             {
                 using (SqlCommand cmd = cn.CreateCommand())
                 {
-                    cmd.CommandText = "select * from employees";
+                    cmd.CommandText = "select * from Pet_table";
 
                     using (SqlDataAdapter da = new SqlDataAdapter(cmd))
                     {
@@ -123,7 +127,7 @@ namespace WebApplication1
                         ds.Clear();
                         da.Fill(ds);
                         DataTable dt = ds.Tables[0];
-                        DataRow dr = dt.Select(string.Format("EmployeeID = {0}", txtD_ID.Text)).First();
+                        DataRow dr = dt.Select(string.Format("Pet_id = {0}", txtD_Pet_id.Text)).First();
                         dr.Delete();
                         da.Update(dt);
 
