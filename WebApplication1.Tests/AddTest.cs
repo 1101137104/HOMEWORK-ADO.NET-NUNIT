@@ -11,25 +11,29 @@ using System.Threading.Tasks;
 namespace WebApplication1.Tests
 {
     [TestFixture]
-    public class Class1
+    public class AddTest
     {
         string ID = "";
 
         [TestFixtureSetUp]
         public void Initial()
         {
-            string sql = @"INSERT INTO [dbo].[Employees]([Name],[Age])
+            string sql = @"INSERT INTO [dbo].[Pet_table]([Pet_name],[Pet_age],[Pet_species],[Pet_host])
                              VALUES
-                               (@Name
-                               ,@Age);SELECT CAST(scope_identity() AS int);";
-            using (SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["ADODBConnectionString"].ConnectionString))
+                               (@Pet_name
+                               ,@Pet_age
+                               ,@Pet_species
+                               ,@Pet_host);SELECT CAST(scope_identity() AS int);";
+            using (SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["PetConnectionString2"].ConnectionString))
             {
                 cn.Open();
                 using (SqlCommand cmd = cn.CreateCommand())
                 {
                     cmd.CommandText = sql;
-                    cmd.Parameters.Add(new SqlParameter("@Name", "123"));
-                    cmd.Parameters.Add(new SqlParameter("@Age", "45"));
+                    cmd.Parameters.Add(new SqlParameter("@Pet_name", "Kyon"));
+                    cmd.Parameters.Add(new SqlParameter("@Pet_age", "17"));
+                    cmd.Parameters.Add(new SqlParameter("@Pet_species", "Monkey"));
+                    cmd.Parameters.Add(new SqlParameter("@Pet_host", "Yuki"));
 
                     ID = cmd.ExecuteScalar().ToString();
 
@@ -41,12 +45,12 @@ namespace WebApplication1.Tests
         [Test]
         public void TestAdd()
         {
-            using (SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["ADODBConnectionString"].ConnectionString))
+            using (SqlConnection cn = new SqlConnection(ConfigurationManager.ConnectionStrings["PetConnectionString2"].ConnectionString))
             {
                 cn.Open();
                 using (SqlCommand cmd = cn.CreateCommand())
                 {
-                    cmd.CommandText = "select Max(EmployeeID) from employees";
+                    cmd.CommandText = "select Max(Pet_id) from Pet_table";
                     using (SqlDataReader dr = cmd.ExecuteReader())
                     {
                         while ((dr.Read()))
